@@ -1,7 +1,8 @@
 # import libraries:
+# from pprint import pprint
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+
 
 # define scope:
 SCOPE = [
@@ -18,15 +19,25 @@ SHEET = GSPREAD_CLIENT.open("movie_database")
 
 all_data = SHEET.worksheet("data").get_all_values()
 
+
 def get_user_input():
-    input(">>>")
-    
+    """
+    Wait for user input and return received query as a list of strings.
+    """
+    print("\nPlease enter a query:")
+    user_input = [input(">>>")]
+    return user_input
+
 
 def main():
+    """
+    Display welcome message.
+    Run all program functions.
+    """
     print("\nWelcome to the Movie Database!")
     print("/help for detailed instructions.")
-    print("\nPlease enter a query:")
-    get_user_input()
-    
+    query = get_user_input()
+    print(query)
+
 
 main()
