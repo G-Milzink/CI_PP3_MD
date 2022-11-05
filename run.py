@@ -29,16 +29,22 @@ def get_user_input():
     return user_input
 
 
-def input_parser(input):
-    if input == ["/help"]:
-        display_instructions()
-        get_user_input()
-
-
 def display_instructions():
+    """
+    Display detailed instructions on application functionality and syntax.
+    """
     print("\nThis will contain detailed instuctions on how to use")
     print("this application.")
     get_user_input()
+
+
+def input_parser(input):
+    """
+    Parse user query and execute relevant functions.
+    """
+    if input == ["/help"]:
+        display_instructions()
+        get_user_input()
 
 
 def main():
