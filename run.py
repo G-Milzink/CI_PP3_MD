@@ -29,6 +29,18 @@ def get_user_input():
     return user_input
 
 
+def input_parser(input):
+    if input == ["/help"]:
+        display_instructions()
+        get_user_input()
+
+
+def display_instructions():
+    print("\nThis will contain detailed instuctions on how to use")
+    print("this application.")
+    get_user_input()
+
+
 def main():
     """
     Display welcome message.
@@ -36,8 +48,9 @@ def main():
     """
     print("\nWelcome to the Movie Database!")
     print("/help for detailed instructions.")
+    print("/exit to exit Movie Databse")
     query = get_user_input()
-    print(query)
+    input_parser(query)
 
 
 main()
