@@ -1,5 +1,5 @@
 # import libraries:
-# from pprint import pprint
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -35,7 +35,7 @@ def display_instructions():
     """
     print("\nThis will contain detailed instuctions on how to use")
     print("this application.")
-    get_user_input()
+    main()
 
 
 def input_parser(input):
@@ -44,7 +44,12 @@ def input_parser(input):
     """
     if input == ["/help"]:
         display_instructions()
-        get_user_input()
+    elif input == ["/leave"]:
+        print("Goodbye,")
+        print("Thank you for using the Movie Database!")
+        sys.exit()
+    else:
+        print(input)
 
 
 def main():
@@ -54,7 +59,7 @@ def main():
     """
     print("\nWelcome to the Movie Database!")
     print("/help for detailed instructions.")
-    print("/exit to exit Movie Databse")
+    print("/leave to exit Movie Database")
     query = get_user_input()
     input_parser(query)
 
