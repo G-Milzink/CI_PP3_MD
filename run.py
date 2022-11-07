@@ -45,11 +45,11 @@ def input_parser(input):
     if input == ["/help"]:
         display_instructions()
     elif input == ["/leave"]:
-        print("Goodbye,")
+        print("Goodbye...")
         print("Thank you for using the Movie Database!")
         sys.exit()
     else:
-        print(input)
+        print("bob")
 
 
 def main():
