@@ -16,7 +16,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("movie_database")
 
-all_data = SHEET.worksheet("data").get_all_values()
+database =  SHEET.worksheet("data")
 
 
 def get_user_input():
@@ -49,6 +49,7 @@ def input_parser(user_input):
         print("Thank you for using the Movie Database!")
         sys.exit()
     else:
+        parsed_query = []
         queries = user_input.split("&")
         for query in queries:
             query = query.split(",")
@@ -74,6 +75,20 @@ def input_parser(user_input):
             elif query[0] == "/score":
                 score = query[1]
                 print(f"Score: {score}")
+            else:
+                print(f"{query[0]} is not a valid query.")
+
+
+def data_retrieval():
+    query = input(">>>")
+    cells = SHEET.worksheet("data").findall(query)
+    for i in cells:
+        i = str(i)
+        i = i.split(" ")
+        i = i[1]
+        i = i[1:][:-2]
+        result = SHEET.worksheet("data").row_values(i)
+        print(result)
 
 
 def main():
@@ -88,4 +103,5 @@ def main():
     input_parser(user_input)
 
 
-main()
+# main()
+data_retrieval()
