@@ -81,25 +81,25 @@ def input_parser(user_input):
     return [title, style, genre, director, score, year, years]
 
 
-def data_retrieval():
+def data_retrieval(parsed_input):
     """
-    Retrieve appropriate rows from worlsheet
+    Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
-    query = input(">>>")
-    cells = database.findall(query)
-    results.clear()
-    first_row = ["Title:", "Style:", "Genre:", "Director:", "Year:", "Score:"]
-    results.append_row(first_row)
-    for i in cells:
-        i = str(i)
-        i = i.split(" ")
-        i = i[1]
-        i = i[1:][:-2]
-        result = database.row_values(i)
-        print(result)
-        results.append_row(result)
-    print("\nSearch results added to worksheet.")
+    query = parsed_input
+    # cells = database.findall(query)
+    # results.clear()
+    # first_row = ["Title:", "Style:", "Genre:", "Director:", "Year:", "Score:"]
+    # results.append_row(first_row)
+    # for i in cells:
+    #     i = str(i)
+    #     i = i.split(" ")
+    #     i = i[1]
+    #     i = i[1:][:-2]
+    #     result = database.row_values(i)
+    #     print(result)
+    #     results.append_row(result)
+    # print("\nSearch results added to worksheet.")
 
 
 def main():
