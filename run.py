@@ -50,6 +50,7 @@ def input_parser(user_input):
         print("Thank you for using the Movie Database!")
         sys.exit()
     else:
+        title = style = genre = director = score = year = years = "*"
         queries = user_input.split("&")
         for query in queries:
             query = query.split(",")
@@ -65,21 +66,26 @@ def input_parser(user_input):
             elif query[0] == "/director":
                 director = query[1]
                 print(f"Director: {director}")
+            elif query[0] == "/score":
+                score = query[1]
+                print(f"Score: {score}")
             elif query[0] == "/year":
                 year = query[1]
                 print(f"Year: {year}")
             elif query[0] == "/years":
-                year_one = query[1]
-                year_two = query[2]
-                print(f"Years: {year_one} - {year_two}")
-            elif query[0] == "/score":
-                score = query[1]
-                print(f"Score: {score}")
+                years = [query[1], query[2]]
+                print(f"Years: {years[0]} - {years[1]}")
             else:
                 print(f"{query[0]} is not a valid query.")
+    
+    return [title, style, genre, director, score, year, years]
 
 
 def data_retrieval():
+    """
+    Retrieve appropriate rows from worlsheet
+    based on parsed user input.
+    """
     query = input(">>>")
     cells = database.findall(query)
     results.clear()
@@ -91,7 +97,9 @@ def data_retrieval():
         i = i[1]
         i = i[1:][:-2]
         result = database.row_values(i)
+        print(result)
         results.append_row(result)
+    print("\nSearch results added to worksheet.")
 
 
 def main():
@@ -103,8 +111,9 @@ def main():
     print("/help for detailed instructions.")
     print("/leave to exit Movie Database")
     user_input = get_user_input()
-    input_parser(user_input)
+    parsed_input = input_parser(user_input)
+    print(parsed_input)
+    # data_retrieval(parsed_input)
 
 
-# main()
-data_retrieval()
+main()
