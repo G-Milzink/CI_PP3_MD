@@ -18,6 +18,7 @@ SHEET = GSPREAD_CLIENT.open("movie_database")
 
 database = SHEET.worksheet("data")
 results = SHEET.worksheet("results")
+messages = SHEET.worksheet("messages")
 
 
 def get_user_input():
@@ -33,8 +34,10 @@ def display_instructions():
     """
     Display detailed instructions on application functionality and syntax.
     """
-    print("\nThis will contain detailed instuctions on how to use")
-    print("this application.")
+    message = messages.col_values(2)
+    print("")
+    for line in message:
+        print(line)
     main()
 
 
@@ -114,9 +117,10 @@ def main():
     Display welcome message.
     Run all program functions.
     """
-    print("\nWelcome to the Movie Database!")
-    print("/help for detailed instructions.")
-    print("/leave to exit Movie Database")
+    print("")
+    print(messages.acell('A1').value)
+    print(messages.acell('A2').value)
+    print(messages.acell('A3').value)
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
     data_retrieval(parsed_input)
