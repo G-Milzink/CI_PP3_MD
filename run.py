@@ -43,6 +43,9 @@ def display_instructions():
 
 
 def leave_database():
+    """
+    Display 'goodbye' message and exit application.
+    """
     print("Goodbye...")
     print("Thank you for using the Movie Database!")
     sys.exit()
@@ -52,12 +55,12 @@ def input_parser(user_input):
     """
     Parse user query and execute relevant functions.
     """
+    title = style = genre = director = score = year = "_no_data*"
     if user_input == "/help":
         display_instructions()
     elif user_input == "/leave":
         leave_database()
     else:
-        title = style = genre = director = score = year = "_no_data*"
         queries = user_input.split("&")
         for query in queries:
             query = query.split(",")
