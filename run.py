@@ -34,11 +34,18 @@ def display_instructions():
     """
     Display detailed instructions on application functionality and syntax.
     """
-    message = messages.col_values(2)
+    instructions = messages.col_values(2)
     print("")
-    for line in message:
+    for line in instructions:
         print(line)
+    input("Hit 'Enter' to continue...")
     main()
+
+
+def leave_database():
+    print("Goodbye...")
+    print("Thank you for using the Movie Database!")
+    sys.exit()
 
 
 def input_parser(user_input):
@@ -48,11 +55,9 @@ def input_parser(user_input):
     if user_input == "/help":
         display_instructions()
     elif user_input == "/leave":
-        print("Goodbye...")
-        print("Thank you for using the Movie Database!")
-        sys.exit()
+        leave_database()
     else:
-        title = style = genre = director = score = year = years = "_no_data*"
+        title = style = genre = director = score = year = "_no_data*"
         queries = user_input.split("&")
         for query in queries:
             query = query.split(",")
@@ -74,13 +79,11 @@ def input_parser(user_input):
             elif query[0] == "/year":
                 year = query[1]
                 print(f"Year: {year}")
-            elif query[0] == "/years":
-                years = [query[1], query[2]]
-                print(f"Years: {years[0]} - {years[1]}")
             else:
                 print(f"{query[0]} is not a valid query.")
 
-    return [title, style, genre, director, score, year, years]
+    parsed_input = [title, style, genre, director, score, year]
+    return parsed_input
 
 
 def data_retrieval(parsed_input):
@@ -106,10 +109,15 @@ def data_retrieval(parsed_input):
                 cell = cell[1:][:-2]
                 relevant_cells.append(cell)
             cells_to_compare.append(relevant_cells)
-    result = list(set.intersection(*map(set, cells_to_compare)))
-    for i in result:
-        results.append_row(database.row_values(i))
-    print("/Data written to worksheet.")
+    if len(cells_to_compare) > 0:
+        result = list(set.intersection(*map(set, cells_to_compare)))
+        for i in result:
+            results.append_row(database.row_values(i))
+        print("Data written to worksheet.")
+    else:
+        print("No valid query received...")
+        print("Please try again.")
+        main()
 
 
 def main():
