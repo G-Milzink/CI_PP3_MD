@@ -42,7 +42,6 @@ def input_parser(user_input):
     """
     Parse user query and execute relevant functions.
     """
-    print(user_input)
     if user_input == "/help":
         display_instructions()
     elif user_input == "/leave":
@@ -50,7 +49,7 @@ def input_parser(user_input):
         print("Thank you for using the Movie Database!")
         sys.exit()
     else:
-        title = style = genre = director = score = year = years = "*"
+        title = style = genre = director = score = year = years = "_no_data*"
         queries = user_input.split("&")
         for query in queries:
             query = query.split(",")
@@ -86,20 +85,21 @@ def data_retrieval(parsed_input):
     Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
-    query = parsed_input
-    # cells = database.findall(query)
-    # results.clear()
-    # first_row = ["Title:", "Style:", "Genre:", "Director:", "Year:", "Score:"]
-    # results.append_row(first_row)
-    # for i in cells:
-    #     i = str(i)
-    #     i = i.split(" ")
-    #     i = i[1]
-    #     i = i[1:][:-2]
-    #     result = database.row_values(i)
-    #     print(result)
-    #     results.append_row(result)
-    # print("\nSearch results added to worksheet.")
+    cells_to_compare = []
+    for query in parsed_input:
+        if query != "_no_data*":
+            cell_list = database.findall(query)
+            relevant_cells = []
+            for cell in cell_list:
+                cell = str(cell).split(" ")[1]
+                cell = cell[1:][:-2]
+                relevant_cells.append(cell)
+            cells_to_compare.append(relevant_cells)
+    print(cells_to_compare)
+    result = list(set.intersection(*map(set, cells_to_compare)))
+    print(result)
+    for i in result:
+        print(database.row_values(i))
 
 
 def main():
@@ -112,8 +112,7 @@ def main():
     print("/leave to exit Movie Database")
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
-    print(parsed_input)
-    # data_retrieval(parsed_input)
+    data_retrieval(parsed_input)
 
 
 main()
