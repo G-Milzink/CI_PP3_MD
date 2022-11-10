@@ -94,9 +94,12 @@ def data_retrieval(parsed_input):
     print("Clear results from previous query? (y/n)")
     clear = input(">>>")
     if clear == "y":
+        print("Clearing all previous search data...")
         results.clear()
         first_row = ["Title:", "Style:", "Genre:", "Director:", "Year:", "Score:"]
         results.append_row(first_row)
+    else:
+        print("Previous search results have been saved.")
 
     cells_to_compare = []
     print("Processing.....")
