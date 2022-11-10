@@ -76,7 +76,7 @@ def input_parser(user_input):
                 print(f"Years: {years[0]} - {years[1]}")
             else:
                 print(f"{query[0]} is not a valid query.")
-    
+
     return [title, style, genre, director, score, year, years]
 
 
@@ -85,7 +85,15 @@ def data_retrieval(parsed_input):
     Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
+    print("Clear results from previous query? (y/n)")
+    clear = input(">>>")
+    if clear == "y":
+        results.clear()
+        first_row = ["Title:", "Style:", "Genre:", "Director:", "Year:", "Score:"]
+        results.append_row(first_row)
+
     cells_to_compare = []
+    print("Processing.....")
     for query in parsed_input:
         if query != "_no_data*":
             cell_list = database.findall(query)
@@ -95,11 +103,10 @@ def data_retrieval(parsed_input):
                 cell = cell[1:][:-2]
                 relevant_cells.append(cell)
             cells_to_compare.append(relevant_cells)
-    print(cells_to_compare)
     result = list(set.intersection(*map(set, cells_to_compare)))
-    print(result)
     for i in result:
-        print(database.row_values(i))
+        results.append_row(database.row_values(i))
+    print("/Data written to worksheet.")
 
 
 def main():
