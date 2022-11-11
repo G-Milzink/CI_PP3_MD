@@ -26,7 +26,7 @@ def get_user_input():
     Wait for user input and return received query as a string.
     """
     print("\nPlease enter a query:")
-    user_input = input(">>>")
+    user_input = input(">>>\n")
     return user_input
 
 
@@ -38,7 +38,7 @@ def display_instructions():
     print("")
     for line in instructions:
         print(line)
-    input("Hit 'Enter' to continue...")
+    input("Hit 'Enter' to continue...\n")
     main()
 
 
@@ -95,7 +95,7 @@ def data_retrieval(parsed_input):
     based on parsed user input.
     """
     print("Clear results from previous query? (y/n)")
-    clear = input(">>>")
+    clear = input(">>>\n")
     if clear == "y":
         print("Clearing all previous search data...")
         results.clear()
