@@ -61,7 +61,7 @@ def get_user_input():
     """
     Wait for user input and return received query as a string.
     """
-    print("\nPlease enter a query:")
+    print(Style.RESET_ALL + "\nPlease enter a query:")
     user_input = input(">>>\n")
     return user_input
 
@@ -73,7 +73,10 @@ def display_welcome():
     welcome_txt = messages.col_values(1)
     print("")
     for line in welcome_txt:
-        print(line)
+        if line[0] == "/":
+            print(Fore.YELLOW + line)
+        else:
+            print(Style.RESET_ALL + line)
 
 
 def display_instructions():
