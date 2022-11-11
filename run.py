@@ -1,7 +1,8 @@
+import sys
+import getpass
+from colorama import Fore, Style
 import gspread
 from google.oauth2.service_account import Credentials
-import sys
-from colorama import Fore, Style
 
 
 # define scope:
@@ -39,7 +40,7 @@ def user_authentication() -> bool:
         user_row = str(user_row).split(" ")[1]
         user_row = user_row[1:][:-2]
         logged_password = registered_users.cell(user_row, 2).value
-        password = input("Enter password:\n")
+        password = getpass.getpass("Enter password:\n")
         if password == logged_password:
             print(f"Hello {user_name}")
             login = True
