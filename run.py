@@ -19,6 +19,36 @@ SHEET = GSPREAD_CLIENT.open("movie_database")
 database = SHEET.worksheet("data")
 results = SHEET.worksheet("results")
 messages = SHEET.worksheet("messages")
+registered_users = SHEET.worksheet("users")
+
+
+def user_authentication() -> bool:
+    """
+    Request username/pasword and check to see if
+    combination exists in worksheet.
+    If true continue..else repeat request.
+    """
+    user_name = input("Enter user-name:\n")
+    list_of_users = registered_users.col_values(1)
+    if user_name in list_of_users:
+        print("User recognized")
+        user_row = registered_users.findall(user_name)
+        user_row = str(user_row).split(" ")[1]
+        user_row = user_row[1:][:-2]
+        logged_password = registered_users.cell(user_row, 2).value
+        password = input("Enter password:\n")
+        if password == logged_password:
+            print(f"Hello {user_name}")
+            login = True
+        else:
+            print("Unknown username/password combination...")
+            print("Please try again.")
+            user_authentication()
+    else:
+        print("Username not recognized...")
+        print("Please try again.")
+        user_authentication()
+    return login
 
 
 def get_user_input():
@@ -101,6 +131,7 @@ def input_parser(user_input):
 
 def data_retrieval(parsed_input):
     """
+    Prompt user to clear/save previous search results.
     Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
@@ -109,13 +140,13 @@ def data_retrieval(parsed_input):
     if clear == "y":
         print("Clearing all previous search data...")
         results.clear()
-        first_row = ["Title", "Style", "Genre", "Director", "Year", "Score"]
-        results.append_row(first_row)
+        results.append_row(["Title", "Style", "Genre", "Director", "Year", "Score"])
     else:
         print("Previous search results have been saved.")
 
     cells_to_compare = []
     print("Processing.....")
+
     for query in parsed_input:
         if query != "_no_data*":
             cell_list = database.findall(query)
@@ -146,4 +177,6 @@ def main():
     data_retrieval(parsed_input)
 
 
-main()
+print("Please login to use Movie Database")
+if user_authentication():
+    main()
