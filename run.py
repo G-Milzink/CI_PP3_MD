@@ -93,6 +93,9 @@ def leave_database():
 
 
 def clear_results():
+    """
+    Prompt user to either delete or keep previous search results.
+    """
     print("Clear results from previous query? (y/n)")
     clear = input(">>>\n")
     if clear == "y":
