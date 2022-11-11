@@ -1,6 +1,7 @@
-import sys
 import gspread
 from google.oauth2.service_account import Credentials
+import sys
+from colorama import Fore, Style
 
 
 # define scope:
@@ -32,7 +33,8 @@ def user_authentication() -> bool:
     user_name = input("Enter user-name:\n")
     list_of_users = registered_users.col_values(1)
     if user_name in list_of_users:
-        print("User recognized")
+        print(Fore.GREEN + "User recognized")
+        print(Style.RESET_ALL)
         user_row = registered_users.findall(user_name)
         user_row = str(user_row).split(" ")[1]
         user_row = user_row[1:][:-2]
@@ -42,11 +44,13 @@ def user_authentication() -> bool:
             print(f"Hello {user_name}")
             login = True
         else:
-            print("Unknown username/password combination...")
+            print(Fore.RED + "Unknown username/password combination...")
+            print(Style.RESET_ALL)
             print("Please try again.")
             user_authentication()
     else:
-        print("Username not recognized...")
+        print(Fore.RED + "Username not recognized...")
+        print(Style.RESET_ALL)
         print("Please try again.")
         user_authentication()
     return login
@@ -78,8 +82,14 @@ def display_instructions():
     instructions = messages.col_values(2)
     print("")
     for line in instructions:
-        print(line)
-    input("Hit 'Enter' to continue...\n")
+        if line[0] == "-":
+            print(Fore.GREEN + line)
+        elif line[0] == "/":
+            print(Fore.YELLOW + line)
+        else:
+            print(Style.RESET_ALL + line)
+    print(Style.RESET_ALL + "Hit 'Enter' to continue...")
+    input(">>>\n")
     main()
 
 
@@ -101,7 +111,8 @@ def clear_results():
     if clear == "y":
         print("Clearing all previous search data...")
         results.clear()
-        results.append_row(["Title", "Style", "Genre", "Director", "Year", "Score"])
+        first_row = ["Title", "Style", "Genre", "Director", "Year", "Score"]
+        results.append_row(first_row)
     else:
         print("Previous search results have been saved.")
 
@@ -176,7 +187,7 @@ def data_retrieval(parsed_input):
         if input(">>>\n") == "y":
             main()
         else:
-            sys.exit()
+            leave_database()
     else:
         print("No valid query received...")
         print("Please try again.")
@@ -194,7 +205,8 @@ def main():
 
 # Run user_authentication and continue if valid credentials
 # are received.
-print("Please login to use Movie Database")
+print(Fore.YELLOW + "Please login to use Movie Database")
+print(Style.RESET_ALL)
 if user_authentication() is True:
     display_welcome()
     main()
