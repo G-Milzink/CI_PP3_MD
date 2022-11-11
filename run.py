@@ -28,6 +28,7 @@ def user_authentication() -> bool:
     combination exists in worksheet.
     If true continue..else repeat request.
     """
+    login = False
     user_name = input("Enter user-name:\n")
     list_of_users = registered_users.col_values(1)
     if user_name in list_of_users:
