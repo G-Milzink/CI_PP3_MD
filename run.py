@@ -198,6 +198,7 @@ def main():
     """
     Run main program functions.
     """
+    display_welcome()
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
     data_retrieval(parsed_input)
@@ -208,5 +209,4 @@ def main():
 print(Fore.YELLOW + "Please login to use Movie Database")
 print(Style.RESET_ALL)
 if user_authentication() is True:
-    display_welcome()
     main()
