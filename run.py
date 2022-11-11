@@ -30,6 +30,16 @@ def get_user_input():
     return user_input
 
 
+def display_welcome():
+    """
+    Read welcome txt from worksheet and display to user.
+    """
+    welcome_txt = messages.col_values(1)
+    print("")
+    for line in welcome_txt:
+        print(line)
+
+
 def display_instructions():
     """
     Display detailed instructions on application functionality and syntax.
@@ -128,13 +138,9 @@ def data_retrieval(parsed_input):
 
 def main():
     """
-    Display welcome message.
     Run all program functions.
     """
-    print("")
-    print(messages.acell('A1').value)
-    print(messages.acell('A2').value)
-    print(messages.acell('A3').value)
+    display_welcome()
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
     data_retrieval(parsed_input)
