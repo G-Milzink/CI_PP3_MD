@@ -92,6 +92,17 @@ def leave_database():
     sys.exit()
 
 
+def clear_results():
+    print("Clear results from previous query? (y/n)")
+    clear = input(">>>\n")
+    if clear == "y":
+        print("Clearing all previous search data...")
+        results.clear()
+        results.append_row(["Title", "Style", "Genre", "Director", "Year", "Score"])
+    else:
+        print("Previous search results have been saved.")
+
+
 def input_parser(user_input):
     """
     Parse user query and execute relevant functions.
@@ -101,6 +112,9 @@ def input_parser(user_input):
         display_instructions()
     elif user_input == "/leave":
         leave_database()
+    elif user_input == "/clear":
+        clear_results()
+        main()
     else:
         queries = user_input.split("&")
         for query in queries:
@@ -132,18 +146,11 @@ def input_parser(user_input):
 
 def data_retrieval(parsed_input):
     """
-    Prompt user to clear/save previous search results.
+    Run clear_results()
     Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
-    print("Clear results from previous query? (y/n)")
-    clear = input(">>>\n")
-    if clear == "y":
-        print("Clearing all previous search data...")
-        results.clear()
-        results.append_row(["Title", "Style", "Genre", "Director", "Year", "Score"])
-    else:
-        print("Previous search results have been saved.")
+    clear_results()
 
     cells_to_compare = []
     print("Processing.....")
@@ -157,11 +164,16 @@ def data_retrieval(parsed_input):
                 cell = cell[1:][:-2]
                 relevant_cells.append(cell)
             cells_to_compare.append(relevant_cells)
-    if len(cells_to_compare) > 0:
+    if len(cells_to_compare) >= 1:
         result = list(set.intersection(*map(set, cells_to_compare)))
         for i in result:
             results.append_row(database.row_values(i))
         print("Data written to worksheet.")
+        print("New query? (y/n)")
+        if input(">>>\n") == "y":
+            main()
+        else:
+            sys.exit()
     else:
         print("No valid query received...")
         print("Please try again.")
@@ -170,14 +182,16 @@ def data_retrieval(parsed_input):
 
 def main():
     """
-    Run all program functions.
+    Run main program functions.
     """
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
     data_retrieval(parsed_input)
 
 
+# Run user_authentication and continue if valid credentials
+# are received.
 print("Please login to use Movie Database")
-if user_authentication():
+if user_authentication() is True:
     display_welcome()
     main()
