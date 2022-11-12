@@ -236,3 +236,4 @@ print(Fore.YELLOW + "\nPlease login to use Movie Database")
 print(Style.RESET_ALL)
 if user_authentication() is True:
     main()
+
