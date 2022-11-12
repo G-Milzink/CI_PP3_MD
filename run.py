@@ -24,6 +24,28 @@ messages = SHEET.worksheet("messages")
 registered_users = SHEET.worksheet("users")
 
 
+def show_logo():
+    """
+    Read ASCII logo from worksheet and display to user.
+    """
+    ascii_logo = messages.col_values(3)
+    col = 0
+    for line in ascii_logo:
+        if col == 0:
+            print(Fore.RED + line)
+        if col == 1:
+            print(Fore.RED + line)
+        if col == 2:
+            print(Fore.YELLOW + line)
+        if col == 3:
+            print(Fore.GREEN + line)
+        if col == 4:
+            print(Fore.BLUE + line)
+        if col == 5:
+            print(Fore.BLUE + line)
+        col += 1
+
+
 def user_authentication() -> bool:
     """
     Request username/pasword and check to see if
@@ -55,15 +77,6 @@ def user_authentication() -> bool:
         print("Please try again.")
         user_authentication()
     return login
-
-
-def get_user_input():
-    """
-    Wait for user input and return received query as a string.
-    """
-    print(Style.RESET_ALL + "\nPlease enter a query:")
-    user_input = input(">>>\n")
-    return user_input
 
 
 def display_welcome():
@@ -101,8 +114,7 @@ def leave_database():
     """
     Display 'goodbye' message and exit application.
     """
-    print("Goodbye...")
-    print("Thank you for using the Movie Database!")
+    print(Fore.YELLOW + "Thank you for using the Movie Database...")
     sys.exit()
 
 
@@ -119,6 +131,15 @@ def clear_results():
         results.append_row(first_row)
     else:
         print("Previous search results have been saved.")
+
+
+def get_user_input():
+    """
+    Wait for user input and return received query as a string.
+    """
+    print(Style.RESET_ALL + "\nPlease enter a query:")
+    user_input = input(">>>\n")
+    return user_input
 
 
 def input_parser(user_input):
@@ -210,7 +231,8 @@ def main():
 
 # Run user_authentication and continue if valid credentials
 # are received.
-print(Fore.YELLOW + "Please login to use Movie Database")
+show_logo()
+print(Fore.YELLOW + "\nPlease login to use Movie Database")
 print(Style.RESET_ALL)
 if user_authentication() is True:
     main()
