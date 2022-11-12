@@ -32,6 +32,32 @@
 
 ## Project Goals
 
--The projects main goal is to provide the user with an easy way to search an external database of movies using speceific criteria such as "director" and year of release.
+- The projects main goal is to provide the user with an easy way to search an external database of movies using speceific criteria such as "director" and year of release.
 - It allows the user to string together queries to perform complex searches inside the database.
-- 
+- It allows users to enter movies into the database.
+
+### User Goals
+
+- The abillity to search a database for one or more movies based on certain specific criteria.
+- The abillity to add movies to the database.
+
+### Site owner goals
+- Create an application that allows the user to easily find movies in a database.
+- Create an application that is easy to use and provides clear feedback to the user.
+
+## User Experience
+
+### Target Audience
+- Movie Enthousiasts.
+
+### User Stories
+
+#### User
+1.
+2.
+
+#### Site Owner
+3.
+4.
+
+### Scope

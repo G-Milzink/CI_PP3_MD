@@ -53,8 +53,11 @@ def user_authentication() -> bool:
     If true continue..else repeat request.
     """
     login = False
+    # ask for user name:
     user_name = input("Enter user-name:\n")
+    # get list of users from worksheet
     list_of_users = registered_users.col_values(1)
+    # check to see if user name exists.
     if user_name in list_of_users:
         print(Fore.GREEN + "User recognized")
         print(Style.RESET_ALL)
@@ -63,15 +66,21 @@ def user_authentication() -> bool:
         user_row = user_row[1:][:-2]
         logged_password = registered_users.cell(user_row, 2).value
         password = getpass.getpass("Enter password:\n")
+        # if user name exists ask for password
         if password == logged_password:
             print(f"Hello {user_name}")
+            # if password is correct set:
             login = True
         else:
+            # if password is incorrect:
+            # inform user and restart authentication sequence
             print(Fore.RED + "Unknown username/password combination...")
             print(Style.RESET_ALL)
             print("Please try again.")
             user_authentication()
     else:
+        # if user name does not exist:
+        # inform user and restart authentication sequence
         print(Fore.RED + "Username not recognized...")
         print(Style.RESET_ALL)
         print("Please try again.")
@@ -236,4 +245,3 @@ print(Fore.YELLOW + "\nPlease login to use Movie Database")
 print(Style.RESET_ALL)
 if user_authentication() is True:
     main()
-
