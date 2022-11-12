@@ -240,8 +240,25 @@ def main():
 
 # Run user_authentication and continue if valid credentials
 # are received.
-show_logo()
-print(Fore.YELLOW + "\nPlease login to use Movie Database")
-print(Style.RESET_ALL)
-if user_authentication() is True:
-    main()
+# show_logo()
+# print(Fore.YELLOW + "\nPlease login to use Movie Database")
+# print(Style.RESET_ALL)
+# if user_authentication() is True:
+#     main()
+
+
+def add_movie():
+    print(Fore.YELLOW + "Add  new movie to database:\n")
+    print(Fore.WHITE + "1. Add new movie.")
+    print("2. Stop adding movies.")
+    menu_choice = input(">>>\n")
+    if menu_choice == "1":
+        pass
+    elif menu_choice == "2":
+        pass
+    else:
+        print(Fore.RED + "Unknown menu selection please try again.\n")
+        add_movie()
+
+
+add_movie()
