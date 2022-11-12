@@ -163,6 +163,8 @@ def input_parser(user_input):
     elif user_input == "/clear":
         clear_results()
         main()
+    elif user_input == "/add":
+        add_movie_menu()
     else:
         queries = user_input.split("&")
         for query in queries:
@@ -228,6 +230,108 @@ def data_retrieval(parsed_input):
         main()
 
 
+def add_movie_menu():
+    """
+    Prompt user if they want to enter a new movie into the database
+    """
+    print(Fore.YELLOW + "Add  new movie to database:")
+    print(Fore.WHITE + "1. Add new movie.")
+    print("2. Stop adding movies.")
+    menu_choice = input(">>>\n")
+    if menu_choice == "1":
+        add_movie()
+    elif menu_choice == "2":
+        pass
+    else:
+        print(Fore.RED + "Unknown menu selection please try again.\n")
+        add_movie_menu()
+
+
+def add_movie():
+    """
+    Needs to be filled out
+    """
+    movie_list = database.col_values(1)
+
+    print(Fore.YELLOW + "Enter movie title:")
+    new_movie_title = input(Fore.WHITE + ">>>")
+
+    if new_movie_title in movie_list:
+        print(Fore.RED + "Movie is already in database.\n")
+        add_movie_menu()
+    else:
+        while True:
+            print(Fore.YELLOW + "Select movie style:")
+            print(Fore.WHITE + "1. Live Action.")
+            print("2. Found Footage.")
+            print("3. Stop Motion.")
+            print("4. Animation.")
+            menu_choice = input(">>>\n")
+            if menu_choice == "1":
+                new_movie_style = "live-action"
+                break
+            elif menu_choice == "2":
+                new_movie_style = "found-footage"
+                break
+            elif menu_choice == "3":
+                new_movie_style = "stop-motion"
+                break
+            elif menu_choice == "4":
+                new_movie_style = "animation"
+                break
+            else:
+                print(f"{menu_choice} is not a valid selection")
+                print(print("Please try again."))
+
+    while True:
+        print(Fore.YELLOW + "Select movie genre:")
+        print(Fore.WHITE + "1. Action.")
+        print("2. Horror.")
+        print("3. Drama.")
+        print("4. Science Fiction.")
+        print("5. Fantasy.")
+        print("6. Comedy.")
+        menu_choice = input(">>>\n")
+        if menu_choice == "1":
+            new_movie_genre = "action"
+            break
+        if menu_choice == "2":
+            new_movie_genre = "horror"
+            break
+        if menu_choice == "3":
+            new_movie_genre = "drama"
+            break
+        if menu_choice == "4":
+            new_movie_genre = "sci-fi"
+            break
+        if menu_choice == "5":
+            new_movie_genre = "fantasy"
+            break
+        if menu_choice == "6":
+            new_movie_genre = "comedy"
+            break
+        else:
+            print(f"{menu_choice} is not a valid selection")
+            print(print("Please try again."))
+
+    print(Fore.YELLOW + "Enter movie director:")
+    new_movie_dir = input(Fore.WHITE + ">>>")
+    print(Fore.YELLOW + "Enter movie release year:")
+    new_movie_year = input(Fore.WHITE + ">>>")
+    print(Fore.YELLOW + "Enter movie score:(0.0 through 10.0)")
+    new_movie_score = input(Fore.WHITE + ">>>")
+
+    new_movie_row = [new_movie_title, new_movie_style, new_movie_genre,
+                     new_movie_dir, new_movie_year, new_movie_score]
+    print(Fore.YELLOW + "New movie entry:")
+    print(Fore.WHITE)
+    print(new_movie_row)
+    print("Processing")
+    database.append_row(new_movie_row)
+    print(Fore.GREEN + "Entry has been added to the database.")
+    add_movie_menu()
+
+
 def main():
     """
     Run main program functions.
@@ -240,25 +344,8 @@ def main():
 
 # Run user_authentication and continue if valid credentials
 # are received.
-# show_logo()
-# print(Fore.YELLOW + "\nPlease login to use Movie Database")
-# print(Style.RESET_ALL)
-# if user_authentication() is True:
-#     main()
-
-
-def add_movie():
-    print(Fore.YELLOW + "Add  new movie to database:\n")
-    print(Fore.WHITE + "1. Add new movie.")
-    print("2. Stop adding movies.")
-    menu_choice = input(">>>\n")
-    if menu_choice == "1":
-        pass
-    elif menu_choice == "2":
-        pass
-    else:
-        print(Fore.RED + "Unknown menu selection please try again.\n")
-        add_movie()
-
-
-add_movie()
+show_logo()
+print(Fore.YELLOW + "\nPlease login to use Movie Database")
+print(Style.RESET_ALL)
+if user_authentication() is True:
+    main()
