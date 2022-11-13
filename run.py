@@ -249,7 +249,12 @@ def add_movie_menu():
 
 def add_movie():
     """
-    Needs to be filled out
+    Allow user to enter new movie into database.
+    Ask for new movie Title and check to see if title already exists.
+    If so inform user go back to add_movie_menu()
+    
+    If no movie with given title exists move on to collect remaining
+    information about movie and add to database when complete.
     """
     movie_list = database.col_values(1)
 
@@ -328,7 +333,7 @@ def add_movie():
     print(new_movie_row)
     print("Processing")
     database.append_row(new_movie_row)
-    print(Fore.GREEN + "Entry has been added to the database.")
+    print(Fore.GREEN + "New movie has been added to the database.")
     add_movie_menu()
 
 
