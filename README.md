@@ -42,7 +42,7 @@
 - The abillity to add movies to the database.
 
 ### Site owner goals
-- Create an application that allows the user to easily find movies in a database.
+- Create an application that allows the user to easily find or add movies in a database.
 - Create an application that is easy to use and provides clear feedback to the user.
 
 ## User Experience
@@ -53,11 +53,34 @@
 ### User Stories
 
 #### User
-1.
-2.
+1. As a first-time user I want to easily learn how the application works.
+2. As a user I want to be able to search for a specific movie based on given data and see the results immediatly.
+3. As a user I want to be able to review my previous search results.
+4. As a user I want to have the option to keep or delete previous search results.
+5. As a user I want to be able to add a new movie to the database.
 
 #### Site Owner
-3.
-4.
+6. As the site owner I want users to be able to easily search the database.
+7. As the site owner I want search results to be stored inside a google sheet.
+8. As the site owner I want user to be able to add Movies to the database.
+9. As the site owner I want every new entry to follow the correct format.
 
 ### Scope
+
+### User Manual
+
+<details><summary>Instruction manual</summary>
+
+#### Overview
+
+#### Section 1
+
+#### Section 2
+
+#### Section 3
+
+</details>
+
+## Technical Design
+
+### Flow Chart

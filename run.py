@@ -252,7 +252,7 @@ def add_movie():
     Allow user to enter new movie into database.
     Ask for new movie Title and check to see if title already exists.
     If so inform user go back to add_movie_menu()
-    
+
     If no movie with given title exists move on to collect remaining
     information about movie and add to database when complete.
     """
