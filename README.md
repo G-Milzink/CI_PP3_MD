@@ -13,8 +13,7 @@
 2. [User Experience](#user-experience)
     1. [Target Audience](#target-audience)
     2. [User Stories](#user-stories)
-    3. [Scope](#scope)
-    4. [User Manual](#user-manual)
+    3. [User Manual](#user-manual)
 3. [Technical Design](#technical-design)
     1. [Flowchart](#flowchart)
     2. [Data Models](#data-models)   
@@ -65,8 +64,6 @@
 8. As the site owner I want user to be able to add Movies to the database.
 9. As the site owner I want every new entry to follow the correct format.
 
-### Scope
-
 ### User Manual
 
 <details><summary>Instruction manual</summary>
@@ -84,3 +81,6 @@
 ## Technical Design
 
 ### Flow Chart
+
+<details><summary>Flowchart</summary>
+<img src="docs/md_flowchart.png"></details>
