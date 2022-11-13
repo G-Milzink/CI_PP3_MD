@@ -1,7 +1,7 @@
 # Movie Database
 (Developed by G.Milzink)
 
-![Screenshot](docs/movie_database_startscreen.webp)
+![Screenshot](docs/images/movie_database_startscreen.webp)
 
 [Live Site](https://https://movie-database-gm.herokuapp.com/)
 
@@ -25,9 +25,9 @@
     1. [Python Validation](#Python-validation)
     2. [Testing user stories](#testing-user-stories)
 7. [Bugs](#Bugs)
-9. [Deployment](#deployment)
-10. [Credits](#credits)
-11. [Acknowledgements](#acknowledgements)
+8. [Deployment](#deployment)
+9. [Credits](#credits)
+10. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
 
@@ -83,7 +83,7 @@
 ### Flow Chart
 
 <details><summary>Flowchart</summary>
-<img src="docs/md_flowchart.png"></details>
+<img src="docs/images/md_flowchart.png"></details>
 
 ### Design
 
@@ -111,4 +111,32 @@
 1. [Colorama](https://pypi.org/project/colorama/) - JUSTIFICATION: Used to add color to the terminal improving application feedback and overall readability and improve the user experience.
 
 2. [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: Used to store main body of data comprising the database, messages to display to user, search results and user login details in a googlew spreadsheet.
-3. 6. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
+3. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
+
+## Features
+
+### Logo
+
+<img src="docs/images/md_logo.webp">
+
+### Login Screen
+
+<img src="docs/images/md_login.webp">
+
+### Main Interface
+
+<img src="docs/images/md_main_interface.webp">
+
+### Detailed Instructions
+
+<img src="docs/images/md_detailed_instructions.webp">
+
+### Clear Results Prompt
+
+<img src="docs/images/md_clear_results_prompt.webp">
+
+### Add New Movie Menu
+
+<img src="docs/images/md_add_movie_menu.webp">
+
+### Add New Movie Process
