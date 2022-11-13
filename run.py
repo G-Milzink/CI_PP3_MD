@@ -1,9 +1,12 @@
 import sys
 import getpass
+import pprint
 from colorama import Fore, Style
 import gspread
 from google.oauth2.service_account import Credentials
 
+# setup pprint:
+pp = pprint.PrettyPrinter(width=80, compact=True)
 
 # define scope:
 SCOPE = [
@@ -165,6 +168,8 @@ def input_parser(user_input):
         main()
     elif user_input == "/add":
         add_movie_menu()
+    elif user_input == "/results":
+        display_results()
     else:
         queries = user_input.split("&")
         for query in queries:
@@ -337,6 +342,21 @@ def add_movie():
     database.append_row(new_movie_row)
     print(Fore.GREEN + "New movie has been added to the database.")
     add_movie_menu()
+
+
+def display_results():
+    print(Fore.YELLOW + "Previous Search Results:")
+    print(Fore.WHITE)
+    if len(results.col_values(1)) > 1:
+        line = 1
+        for row in results.get_all_values():
+            if line > 1:
+                row = ",".join(row)
+                pp.pprint(row)
+            line += 1
+    print("Hit 'Enter' to continue...")
+    input(">>>\n")
+    main()
 
 
 def main():

@@ -100,7 +100,7 @@ The Main Interface accepts the following top level commands:
 The Main Interface accepts the following search parameters:
 - **/title**
 any movie title. *case sensitive*
-- **/genre **
+- **/genre**
 horror,sci-fi,drama,comedy,documentary
 - **/style**
 live-action,animation,stop-motion,found-footage
@@ -112,9 +112,9 @@ any year
 0.0 through 10.0
 
 Queries and parameters should be seperated by comma's:
-examples:
 - /genre,horror
 - /director,Peter Jackson
+
 Queries can be combined by using "&"
 examples:
 - /genre,horror&/year,2004
