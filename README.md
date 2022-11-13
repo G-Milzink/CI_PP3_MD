@@ -70,11 +70,59 @@
 
 #### Overview
 
-#### Section 1
+The Movie Database has been designed to allow the user to easily search a large database of movies based on parameters such as  the movies title, director and year of release among others.
+The application also allows the user to add movies to the database.
+Upon running the application, the user is first greeted by the logo screen.
 
-#### Section 2
+#### Login
 
-#### Section 3
+Below the logo screen the user will find a prompt asking for a user name.
+This request will repeat untill a valid user name is provided.
+Once a valid user name is received the application will prompt the user to enter the associated pasword. Upon receiving a valid password the application wil continue.
+If the password provided is not valid the login process will reset to allow the user to try again.
+
+For testing purposes and initial setup the following login has been provided.
+User name: md_admin
+Password: md_password
+
+#### Main Interface
+
+After login a welcome message will be displayed followed by instructions on the basic syntax for the interface.
+The application will then prompt the user to provide instructions.
+
+The Main Interface accepts the following top level commands:
+- **/help** will display detailed instructions on program operation
+- **/add** will take the user to add movie interface allowing them to add a movie to the database.
+(movie title *must* be unique)
+- **/clear** will prompt the user to delete *all* previous search data.
+- **/leave** will exit Movie Database.
+
+The Main Interface accepts the following search parameters:
+- **/title**
+any movie title. *case sensitive*
+- **/genre **
+horror,sci-fi,drama,comedy,documentary
+- **/style**
+live-action,animation,stop-motion,found-footage
+- **/director**
+any director. *case sensitive*
+- **/year**
+any year
+- **/score**
+0.0 through 10.0
+
+Queries and parameters should be seperated by comma's:
+examples:
+- /genre,horror
+- /director,Peter Jackson
+Queries can be combined by using "&"
+examples:
+- /genre,horror&/year,2004
+- /style,live-action&/genre,fantasy&/director,Peter Jackson
+
+#### Add Movie
+
+#### Clear Results Prompt
 
 </details>
 
@@ -97,7 +145,7 @@
 
 1. [GitPod](https://gitpod.io) - Cloudbased Development Environment
 2. [GitHub](https://github.com) - GitHub was used as a remote repository to store project code.
-3. [LucidChart](https://lucid.app)
+3. [LucidChart](https://lucid.app) - LucidChart was used to create the flowchart for the application
 4. [Google Sheets](https://www.google.co.uk/sheets/about/) - was used to store data externaly.
 5. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
 
@@ -111,7 +159,7 @@
 1. [Colorama](https://pypi.org/project/colorama/) - JUSTIFICATION: Used to add color to the terminal improving application feedback and overall readability and improve the user experience.
 
 2. [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: Used to store main body of data comprising the database, messages to display to user, search results and user login details in a googlew spreadsheet.
-3. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
+3. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - JUSTIFICATON: Used to manage access and permissions to the google services, google auth, sheets etc.
 
 ## Features
 
