@@ -16,7 +16,7 @@
     3. [User Manual](#user-manual)
 3. [Technical Design](#technical-design)
     1. [Flowchart](#flowchart)
-    2. [Data Models](#data-models)   
+    2. [Design](#design)   
 4. [Technologies Used](#technologies-used)
     1. [Languages](#languages)
     2. [Frameworks and Tools](#frameworks-and-tools)
@@ -84,3 +84,31 @@
 
 <details><summary>Flowchart</summary>
 <img src="docs/md_flowchart.png"></details>
+
+### Design
+
+## Technologies Used
+
+### Languages
+
+- [Python3](https://python.org)
+
+### Frameworks and Tools
+
+1. [GitPod](https://gitpod.io) - Cloudbased Development Environment
+2. [GitHub](https://github.com) - GitHub was used as a remote repository to store project code.
+3. [LucidChart](https://lucid.app)
+4. [Google Sheets](https://www.google.co.uk/sheets/about/) - was used to store data externaly.
+5. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
+
+#### Libraries
+
+1. sys - used to allow user to terminate the program.
+2. getpass - used to hide User password during/after entry.
+
+### Third party libraries
+
+1. [Colorama](https://pypi.org/project/colorama/) - JUSTIFICATION: Used to add color to the terminal improving application feedback and overall readability and improve the user experience.
+
+2. [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: Used to store main body of data comprising the database, messages to display to user, search results and user login details in a googlew spreadsheet.
+3. 6. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - was used to manage access and permissions to the google services, google auth, sheets etc.
