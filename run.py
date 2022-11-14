@@ -75,11 +75,11 @@ def user_authentication() -> bool:
             # if password is correct set:
             login = True
             try:
-                SHEET.worksheet(user_name)
+                global results
+                results = SHEET.worksheet(user_name)
             except gspread.exceptions.WorksheetNotFound:
                 print(Fore.RED + "Worksheet not found...")
                 print(Fore.WHITE + "Creating New Worksheet...")
-                global results
                 results = SHEET.add_worksheet(title=user_name,
                                               rows=1000, cols=5)
                 print(Fore.YELLOW + "New Empty Worksheet Created.")
@@ -230,8 +230,15 @@ def data_retrieval(parsed_input):
             cells_to_compare.append(relevant_cells)
     if len(cells_to_compare) >= 1:
         result = list(set.intersection(*map(set, cells_to_compare)))
-        for i in result:
-            results.append_row(database.row_values(i))
+        print(Fore.YELLOW + "Search complete.")
+        print("Display results? (y/n)")
+        if input(">>>") == "y":
+            for i in result:
+                pp.pprint(database.row_values(i))
+        print("Store results in worksheet? (y/n)")
+        if input(">>>") == "y":
+            for i in result:
+                results.append_row(database.row_values(i))
         print("Data written to worksheet.")
         print("New query? (y/n)")
         if input(">>>\n") == "y":
@@ -371,16 +378,6 @@ def display_results():
     main()
 
 
-def main():
-    """
-    Run main program functions.
-    """
-    display_welcome()
-    user_input = get_user_input()
-    parsed_input = input_parser(user_input)
-    data_retrieval(parsed_input)
-
-
 def add_new_user():
     """
     Ask for new user name, check if available.
@@ -410,6 +407,16 @@ def add_new_user():
     registered_users.append_row(new_user_row)
     print("New user added...")
     print("Personal Worksheet will be created on first login.")
+
+
+def main():
+    """
+    Run main program functions.
+    """
+    display_welcome()
+    user_input = get_user_input()
+    parsed_input = input_parser(user_input)
+    data_retrieval(parsed_input)
 
 
 # Run user_authentication and continue only if valid credentials
