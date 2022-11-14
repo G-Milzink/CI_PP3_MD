@@ -216,3 +216,46 @@ User stories covered by this screen:
 <img src="docs/images/md_add_movie_proces_2.webp">
 
 6, 9, 11
+
+## Validation
+
+### Python Validation
+All Python code  was validated using PEP8 Validation Service.  All Code passed with 0 errors.
+
+<details><summary>run.py</summary>
+<img src="docs/images/md_validation.webp">
+</details>
+
+### Testing user stories
+
+1. As a first-time user I want to easily learn how the application works.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|type /help | User is presented with detailed instructions|works as expected|
+
+2. As a user I want to be able to search for a specific movie based on given data and see the results immediatly.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|enter query| Search results are displayed|works as expected|
+
+3.
+
+4.
+
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+10.
+
+11.
+
+12.
