@@ -407,6 +407,7 @@ def add_new_user():
     registered_users.append_row(new_user_row)
     print("New user added...")
     print("Personal Worksheet will be created on first login.")
+    main()
 
 
 def main():
