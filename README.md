@@ -143,6 +143,9 @@ examples:
 
 ### Design
 
+The application uses a google spreadsheet to store data externally.
+This includes: The actual database, instructions, welcome message, user login details and personal search results.
+
 ## Technologies Used
 
 ### Languages
@@ -311,7 +314,7 @@ This application has been deployed from Github using Heroku. Here's how:
 3. Click on create app
 4. Go to "Settings"
 5. Under Config Vars, add your sensitive data (creds.json for example)
-6. For this project, I set buildpacks to and in that order.
+6. For this project, I set buildpacks to "Python" and "NodeJS" in that order.
 7. Go to "Deploy" and at "Deployment method", click on "Connect to Github"
 8. Enter your repository name and click on it when it shows below
 9. Choose the branch you want to buid your app from
@@ -319,15 +322,15 @@ This application has been deployed from Github using Heroku. Here's how:
 
 ### Forking the GitHub Repository 
 
-By forking this GitHub repository you are making a copy of the original to view or make changes without affecting the original. You can do this by following these steps...
+By forking this GitHub repository you are creating a copy to view or make changes without affecting the original. You can do this by following these steps...
 
-1. Log into your GitHub account and find the [repository](https://github.com/dannymagnus/CI_MS3_MitsurukiFMS).
+1. Log into your GitHub account and find the [repository](https://github.com/G-Milzink/CI_PP3_MD).
 2. Click 'Fork' (last button on the top right of the repository page).
 3. You will then have a copy of the repository in your own GitHub account. 
 
 ### Making a Local Clone
 
-1. Log into your GitHub account and find the [repository](https://github.com/dannymagnus/CI_MS3_MitsurukiFMS).
+1. Log into your GitHub account and find the [repository](https://github.com/G-Milzink/CI_PP3_MD).
 2. Click on the 'Code' button (next to 'Add file'). 
 3. To clone the repository using HTTPS, under clone with HTTPS, copy the link.
 4. Then open Git Bash.
