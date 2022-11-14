@@ -212,6 +212,7 @@ User stories covered by this screen:
 
 ### Add New Movie Process
 
-<img src="">
+<img src="docs/images/md_add_movie_proces.webp">
+<img src="docs/images/md_add_movie_proces_2.webp">
 
 6, 9, 11
