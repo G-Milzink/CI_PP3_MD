@@ -331,6 +331,21 @@ The following steps were taken:
 11. If prefered, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
 12. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
+<details><summary>Heroku Login</summary>
+<img src="docs/images/heroku/heroku_login.webp"></details>
+
+<details><summary>New Project</summary>
+<img src="docs/images/heroku/heroku_new_project.webp"></details>
+
+<details><summary>Config Vars</summary>
+<img src="docs/images/heroku/heroku_config_vars.webp"></details>
+
+<details><summary>Buildpacks</summary>
+<img src="docs/images/heroku/heroku_buildpacks.webp"></details>
+
+<details><summary>Deployement</summary>
+<img src="docs/images/heroku/heroku_deployement.webp"></details>
+
 ### Forking the GitHub Repository 
 
 By forking this GitHub repository you are creating a copy to view or make changes without affecting the original. You can do this by following these steps...
