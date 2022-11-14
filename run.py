@@ -230,12 +230,8 @@ def data_retrieval(parsed_input):
         if input(">>>") == "y":
             for i in result:
                 results.append_row(database.row_values(i))
-        print(Fore.YELLOW + "Data written to worksheet.")
-        print(Fore.WHITE + "New query? (y/n)")
-        if input(">>>\n") == "y":
-            main()
-        else:
-            leave_database()
+        print(Fore.YELLOW + "Data written to worksheet.\n")
+        main()
     else:
         print("No valid query received...")
         print("Please try again.")
