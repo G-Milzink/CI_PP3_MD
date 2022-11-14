@@ -382,6 +382,11 @@ def main():
 
 
 def add_new_user():
+    """ 
+    Ask for new user name, check if available.
+    If so: request a password and confirm with a second request.
+    Display provided and ask user if new user should be added.
+    """
     while True:
         print("Enter new user name:")
         new_user_name = input(">>>\n")
