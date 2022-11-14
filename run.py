@@ -22,9 +22,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("movie_database")
 
 database = SHEET.worksheet("data")
-results = SHEET.worksheet("results")
 messages = SHEET.worksheet("messages")
 registered_users = SHEET.worksheet("users")
+results = SHEET.worksheet("empty")
 
 
 def show_logo():
@@ -74,6 +74,16 @@ def user_authentication() -> bool:
             print(f"Hello {user_name}")
             # if password is correct set:
             login = True
+            try:
+                SHEET.worksheet(user_name)
+            except gspread.exceptions.WorksheetNotFound:
+                print(Fore.RED + "Worksheet not found...")
+                print(Fore.WHITE + "Creating New Worksheet...")
+                global results
+                results = SHEET.add_worksheet(title=user_name,
+                                              rows=1000, cols=5)
+                print(Fore.YELLOW + "New Empty Worksheet Created.")
+                print(Fore.WHITE)
         else:
             # if password is incorrect:
             # inform user and restart authentication sequence
@@ -166,8 +176,10 @@ def input_parser(user_input):
     elif user_input == "/clear":
         clear_results()
         main()
-    elif user_input == "/add":
+    elif user_input == "/add_movie":
         add_movie_menu()
+    elif user_input == "/add_user":
+        add_new_user()
     elif user_input == "/results":
         display_results()
     else:
@@ -201,12 +213,9 @@ def input_parser(user_input):
 
 def data_retrieval(parsed_input):
     """
-    Run clear_results()
     Retrieve appropriate rows from worksheet
     based on parsed user input.
     """
-    clear_results()
-
     cells_to_compare = []
     print("Processing.....")
 
@@ -345,6 +354,9 @@ def add_movie():
 
 
 def display_results():
+    """
+    Read and display previous search results from worksheet.
+    """
     print(Fore.YELLOW + "Previous Search Results:")
     print(Fore.WHITE)
     if len(results.col_values(1)) > 1:
@@ -367,6 +379,32 @@ def main():
     user_input = get_user_input()
     parsed_input = input_parser(user_input)
     data_retrieval(parsed_input)
+
+
+def add_new_user():
+    while True:
+        print("Enter new user name:")
+        new_user_name = input(">>>\n")
+        list_of_users = registered_users.row_values(1)
+        if new_user_name in list_of_users:
+            print("Sorry!...That name is already taken")
+            add_new_user()
+        else:
+            break
+
+    while True:
+        print("Enter Password:")
+        new_pass1 = input(">>>\n")
+        print("Confirm Password:")
+        new_pass2 = input(">>>\n")
+        if new_pass1 == new_pass2:
+            new_user_pass = new_pass1
+            break
+
+    new_user_row = [new_user_name, new_user_pass]
+    registered_users.append_row(new_user_row)
+    print("New user added...")
+    print("Personal Worksheet will be created on first login.")
 
 
 # Run user_authentication and continue if valid credentials

@@ -31,7 +31,7 @@
 
 ## Project Goals
 
-- The projects main goal is to provide the user with an easy way to search an external database of movies using speceific criteria such as "director" and year of release.
+- The projects main goal is to provide the user with an easy way to search an external database of movies using specific criteria such as "director" and year of release.
 - It allows the user to string together queries to perform complex searches inside the database.
 - It allows users to enter movies into the database.
 
@@ -92,7 +92,7 @@ The application will then prompt the user to provide instructions.
 
 The Main Interface accepts the following top level commands:
 - **/help** will display detailed instructions on program operation
-- **/add** will take the user to add movie interface allowing them to add a movie to the database.
+- **/add** allows the user to add a movie to the database.
 (movie title *must* be unique)
 - **/clear** will prompt the user to delete *all* previous search data.
 - **/leave** will exit Movie Database.
