@@ -66,7 +66,8 @@
 7. As the site owner I want search results to be stored inside a google sheet.
 8. As the site owner I want user to be able to add Movies to the database.
 9. As the site owner I want to be able to add a new user to the system.
-9. As the site owner I want every new entry to follow the correct format.
+10. As the site owner I want every new entry to follow the correct format.
+11. As the site owner I want restrict use of the application to registered users.
 
 ### User Manual
 
@@ -176,6 +177,8 @@ examples:
 ### Login Screen
 
 <img src="docs/images/md_login.webp">
+
+User stories covered by this screen:
 
 ### Main Interface
 
