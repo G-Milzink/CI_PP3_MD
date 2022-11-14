@@ -32,16 +32,19 @@
 ## Project Goals
 
 - The projects main goal is to provide the user with an easy way to search an external database of movies using specific criteria such as "director" and year of release.
-- It allows the user to string together queries to perform complex searches inside the database.
-- It allows users to enter movies into the database.
+- The application will allow the user to string together queries to perform complex searches inside the database.
+- The application will allow the user to keep/review/delete previous search results.
+- The application will allow the user to enter movies into the database.
+- The application will allow any registered user to add a new user to the system.
 
 ### User Goals
 
 - The abillity to search a database for one or more movies based on certain specific criteria.
+- The abillity to keep/review.delete past search results.
 - The abillity to add movies to the database.
 
 ### Site owner goals
-- Create an application that allows the user to easily find or add movies in a database.
+- Create an application that allows the user to easily find or add movies in a database and create a personal list of movies wich can be reviewed later.
 - Create an application that is easy to use and provides clear feedback to the user.
 
 ## User Experience
@@ -62,6 +65,7 @@
 6. As the site owner I want users to be able to easily search the database.
 7. As the site owner I want search results to be stored inside a google sheet.
 8. As the site owner I want user to be able to add Movies to the database.
+9. As the site owner I want to be able to add a new user to the system.
 9. As the site owner I want every new entry to follow the correct format.
 
 ### User Manual
@@ -92,9 +96,11 @@ The application will then prompt the user to provide instructions.
 
 The Main Interface accepts the following top level commands:
 - **/help** will display detailed instructions on program operation
+- **/results** displays all previous search results.
+- **/clear** will prompt the user to delete *all* previous search data.
 - **/add** allows the user to add a movie to the database.
 (movie title *must* be unique)
-- **/clear** will prompt the user to delete *all* previous search data.
+- **/add** to add a new user acount.
 - **/leave** will exit Movie Database.
 
 The Main Interface accepts the following search parameters:

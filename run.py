@@ -382,7 +382,7 @@ def main():
 
 
 def add_new_user():
-    """ 
+    """
     Ask for new user name, check if available.
     If so: request a password and confirm with a second request.
     Display provided and ask user if new user should be added.
@@ -412,7 +412,7 @@ def add_new_user():
     print("Personal Worksheet will be created on first login.")
 
 
-# Run user_authentication and continue if valid credentials
+# Run user_authentication and continue only if valid credentials
 # are received.
 show_logo()
 print(Fore.YELLOW + "\nPlease login to use Movie Database")
