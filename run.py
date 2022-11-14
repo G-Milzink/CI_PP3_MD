@@ -265,15 +265,12 @@ def add_movie():
     information about movie and add to database when complete.
     """
     movie_list = database.col_values(1)
-    # Ask user for new movie title.
     print(Fore.YELLOW + "Enter movie title:")
     new_movie_title = input(Fore.WHITE + ">>>")
-    # Check if movie already exists in database.
     if new_movie_title in movie_list:
         print(Fore.RED + "Movie is already in database.\n")
         add_movie_menu()
     else:
-        # Style menu allows user to select a style for the new entry.
         while True:
             print(Fore.YELLOW + "Select movie style:")
             print(Fore.WHITE + "1. Live Action.")
@@ -296,7 +293,6 @@ def add_movie():
             else:
                 print(f"{menu_choice} is not a valid selection")
                 print(print("Please try again."))
-    # Genre menu allows user to select a genre for the new entry.
     while True:
         print(Fore.YELLOW + "Select movie genre:")
         print(Fore.WHITE + "1. Action.")
@@ -327,7 +323,6 @@ def add_movie():
         else:
             print(f"{menu_choice} is not a valid selection")
             print(print("Please try again."))
-    # Prompt user for remaining data.
     print(Fore.YELLOW + "Enter movie director:")
     new_movie_dir = input(Fore.WHITE + ">>>")
     print(Fore.YELLOW + "Enter movie release year:")
@@ -341,7 +336,6 @@ def add_movie():
     print(Fore.WHITE)
     print(new_movie_row)
     print("Processing")
-    # Add new entry to database.
     database.append_row(new_movie_row)
     print(Fore.GREEN + "New movie has been added to the database.")
     add_movie_menu()
