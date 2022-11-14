@@ -1,3 +1,6 @@
+"""
+Commandline interface for google spreadsheet based movie database.
+"""
 import sys
 import getpass
 import pprint
@@ -402,8 +405,6 @@ def main():
     data_retrieval(parsed_input)
 
 
-# Run user_authentication and continue only if valid credentials
-# are received.
 show_logo()
 print(Fore.YELLOW + "\nPlease login to use Movie Database")
 print(Style.RESET_ALL)
