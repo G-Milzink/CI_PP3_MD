@@ -134,6 +134,8 @@ examples:
 
 </details>
 
+[Back to Table Of Contents](#table-of-contents)
+
 ## Technical Design
 
 ### Flow Chart
@@ -171,6 +173,8 @@ This includes: The actual database, instructions, welcome message, user login de
 
 2. [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: Used to store main body of data comprising the database, messages to display to user, search results and user login details in a googlew spreadsheet.
 3. [Google Cloud Platform](https://cloud.google.com/cloud-console/) - JUSTIFICATON: Used to manage access and permissions to the google services, google auth, sheets etc.
+
+[Back to Table Of Contents](#table-of-contents)
 
 ## Features
 
@@ -219,6 +223,8 @@ User stories covered by this screen:
 <img src="docs/images/md_add_movie_proces_2.webp">
 
 6, 9, 11
+
+[Back to Table Of Contents](#table-of-contents)
 
 ## Validation
 
@@ -303,6 +309,8 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |Login Screen|Enter valid login|Login accepted |works as expected|
 |Login Screen|Enter invalid login|Login rejected |works as expected|
 
+[Back to Table Of Contents](#table-of-contents)
+
 ## Deployment
 
 ### Heroku
@@ -352,3 +360,5 @@ I would like to take the opportunity to thank:
 - My partner Geertje van der Zalm for her support, inspiration and patience.
 - My mother Anne Rijsdijk and her husband Mickel Pereira for helping me persue this dream.
 - Anyone who spends time on the internet making tutorials, awnsering questions or otherwise helping others to learn.
+
+[Back to Table Of Contents](#table-of-contents)
