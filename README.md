@@ -59,7 +59,7 @@
 2. As a user I want to be able to search for a specific movie based on given data and see the results immediatly.
 3. As a user I want to be able to build a personal database of search results.
 4. As a user I want to be able to review my previous search results.
-5. As a user I want to have the option to keep or delete previous search results.
+5. As a user I want to have the option to delete previous search results.
 6. As a user I want to be able to add a new movie to the database.
 
 #### Site Owner
@@ -180,22 +180,38 @@ examples:
 <img src="docs/images/md_login.webp">
 
 User stories covered by this screen:
-
+3, 12
 
 ### Main Interface
 
 <img src="docs/images/md_main_interface.webp">
 
+User stories covered by this screen:
+1, 2, ,5, 6, 7, 9, 10
+
 ### Detailed Instructions
 
 <img src="docs/images/md_detailed_instructions.webp">
+
+User stories covered by this screen:
+1,7
 
 ### Clear Results Prompt
 
 <img src="docs/images/md_clear_results_prompt.webp">
 
+User storie covered by this screen:
+5
+
 ### Add New Movie Menu
 
 <img src="docs/images/md_add_movie_menu.webp">
 
+User stories covered by this screen:
+6, 9
+
 ### Add New Movie Process
+
+<img src="">
+
+6, 9, 11
