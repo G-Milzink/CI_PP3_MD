@@ -387,9 +387,10 @@ def add_new_user():
     while True:
         print("Enter new user name:")
         new_user_name = input(">>>\n")
-        list_of_users = registered_users.row_values(1)
+        list_of_users = registered_users.col_values(1)
         if new_user_name in list_of_users:
-            print("Sorry!...That name is already taken")
+            print(Fore.RED + "Sorry!...That name is already taken")
+            print(Fore.WHITE)
             add_new_user()
         else:
             break
