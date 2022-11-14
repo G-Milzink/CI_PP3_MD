@@ -90,14 +90,14 @@ def user_authentication() -> bool:
             print(Fore.RED + "Unknown username/password combination...")
             print(Style.RESET_ALL)
             print("Please try again.")
-            user_authentication()
+            login = False
     else:
         # if user name does not exist:
         # inform user and restart authentication sequence
         print(Fore.RED + "Username not recognized...")
         print(Style.RESET_ALL)
         print("Please try again.")
-        user_authentication()
+        login = False
     return login
 
 
@@ -412,5 +412,8 @@ def add_new_user():
 show_logo()
 print(Fore.YELLOW + "\nPlease login to use Movie Database")
 print(Style.RESET_ALL)
-if user_authentication() is True:
-    main()
+
+while True:
+    if user_authentication():
+        break
+main()
