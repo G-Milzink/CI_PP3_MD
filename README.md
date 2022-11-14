@@ -315,18 +315,21 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 
 ### Heroku
 
-This application has been deployed from Github using Heroku. Here's how:
+This application has been deployed from GitHub to Heroku.
+The following steps were taken:
 
-1. Create an account at heroku.com
-2. Create a new app, add app name and your region
+1. Create or log in to your account at heroku.com
+2. Create a new app, add a unique app name (this project is named "movie-database-gm") and choose your region
 3. Click on create app
 4. Go to "Settings"
-5. Under Config Vars, add your sensitive data (creds.json for example)
-6. For this project, I set buildpacks to "Python" and "NodeJS" in that order.
-7. Go to "Deploy" and at "Deployment method", click on "Connect to Github"
-8. Enter your repository name and click on it when it shows below
-9. Choose the branch you want to buid your app from
-10. If desired, click on "Enable Automatic Deploys", which keeps the app up to date with your Github repository
+5. Under Config Vars store any sensitive data you saved in .json file. Key: CREDS, Value: copy the .json file and paste it to 'Value' field.
+6. Under Config Vars add a key 'PORT' with value '8000'.
+7. Add required buildpacks (further dependencies). For this project, use 'Python' and 'node.js' in that order.
+8. Go to "Deploy" and select "GitHub" in "Deployment method"
+9. To link up our Heroku app to our Github repository code enter your repository name, click 'Search' and then 'Connect' when it shows below
+10.  Choose the branch you want to buid your app from
+11. If prefered, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+12. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
 ### Forking the GitHub Repository 
 
