@@ -15,7 +15,7 @@
     2. [User Stories](#user-stories)
     3. [User Manual](#user-manual)
 3. [Technical Design](#technical-design)
-    1. [Flowchart](#flowchart)
+    1. [Flowchart](#flow-chart)
     2. [Design](#design)   
 4. [Technologies Used](#technologies-used)
     1. [Languages](#languages)
