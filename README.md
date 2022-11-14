@@ -240,22 +240,112 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |-------------|------------|---------------------|-------------------|
 |Main interface|enter query| Search results are displayed|works as expected|
 
-3.
+3. As a user I want to be able to build a personal database of search results.
 
-4.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Login Screen|Enter login| Personal worksheet accessed|works as expected|
 
-5.
+4. As a user I want to be able to review my previous search results.
 
-6.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|type /results| Previous searches are displayed|works as expected|
 
-7.
+5. As a user I want to have the option to delete previous search results.
 
-8.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|type /clear| Previous searches are deleted|works as expected|
 
-9.
+6. As a user I want to be able to add a new movie to the database.
 
-10.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|type /add_movie| Go to add movie menu|works as expected|
+|Add movie menu|Select option 1 |Start entering movie detials| Works as expected|
 
-11.
+7. As the site owner I want users to be able to easily search the database.
 
-12.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|Enter search parameters| Results are displayed|works as expected|
+
+8. As the site owner I want search results to be stored inside a google sheet.
+
+9. As the site owner I want user to be able to add Movies to the database.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|type /add| Go to add movie menu|works as expected|
+|Add movie menu|Select option 1 |Start entering movie detials| Works as expected|
+
+10. As the site owner I want to be able to add a new user to the system.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|Type: /add_user|Go to add user menu|works as expected|
+|Add user menu|Enter valid user details|User is created| Works as expected|
+
+11. As the site owner I want every new entry to follow the correct format.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Add movie menu|Select option 1 |Receive instruction on new movie entry| Works as expected|
+
+12. As the site owner I want restrict use of the application to registered users.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Login Screen|Enter valid login|Login accepted |works as expected|
+|Login Screen|Enter invalid login|Login rejected |works as expected|
+
+## Deployment
+
+### Heroku
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+2. Create a new app, add app name and your region
+3. Click on create app
+4. Go to "Settings"
+5. Under Config Vars, add your sensitive data (creds.json for example)
+6. For this project, I set buildpacks to and in that order.
+7. Go to "Deploy" and at "Deployment method", click on "Connect to Github"
+8. Enter your repository name and click on it when it shows below
+9. Choose the branch you want to buid your app from
+10. If desired, click on "Enable Automatic Deploys", which keeps the app up to date with your Github repository
+
+### Forking the GitHub Repository 
+
+By forking this GitHub repository you are making a copy of the original to view or make changes without affecting the original. You can do this by following these steps...
+
+1. Log into your GitHub account and find the [repository](https://github.com/dannymagnus/CI_MS3_MitsurukiFMS).
+2. Click 'Fork' (last button on the top right of the repository page).
+3. You will then have a copy of the repository in your own GitHub account. 
+
+### Making a Local Clone
+
+1. Log into your GitHub account and find the [repository](https://github.com/dannymagnus/CI_MS3_MitsurukiFMS).
+2. Click on the 'Code' button (next to 'Add file'). 
+3. To clone the repository using HTTPS, under clone with HTTPS, copy the link.
+4. Then open Git Bash.
+5. Change the current working directory to where you want the cloned directory to be made.
+6. In your IDE's terminal type 'git clone' followed by the URL you copied.
+7. Press Enter. 
+8. Your local clone will now be made.
+
+## Credits
+
+### Code
+
+- **Code Institute** - for git template IDE and heroku deployment instructions.
+- **Google** - for library [gspread](https://docs.gspread.org/en/latest/) and [APIS](https://developers.google.com/sheets/api)
+
+## Acknowledgements
+I would like to take the opportunity to thank:
+- My mentor Mo Shami for his feedback, advice, guidance and support.
+- My partner Geertje van der Zalm for her support, inspiration and patience.
+- My mother Anne Rijsdijk and her husband Mickel Pereira for helping me persue this dream.
+- Anyone who spends time on the internet making tutorials, awnsering questions or otherwise helping others to learn.
