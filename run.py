@@ -231,7 +231,7 @@ def data_retrieval(parsed_input):
     if len(cells_to_compare) >= 1:
         result = list(set.intersection(*map(set, cells_to_compare)))
         print(Fore.YELLOW + "Search complete.")
-        print("Display results? (y/n)")
+        print(Fore.WHITE + "Display results? (y/n)")
         if input(">>>") == "y":
             for i in result:
                 pp.pprint(database.row_values(i))
@@ -239,8 +239,8 @@ def data_retrieval(parsed_input):
         if input(">>>") == "y":
             for i in result:
                 results.append_row(database.row_values(i))
-        print("Data written to worksheet.")
-        print("New query? (y/n)")
+        print(Fore.YELLOW + "Data written to worksheet.")
+        print(Fore.WHITE + "New query? (y/n)")
         if input(">>>\n") == "y":
             main()
         else:
