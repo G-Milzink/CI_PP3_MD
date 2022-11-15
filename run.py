@@ -21,17 +21,17 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("movie_database")
 
-database = SHEET.worksheet("data")
-messages = SHEET.worksheet("messages")
-registered_users = SHEET.worksheet("users")
-results = SHEET.worksheet("empty")
+DATABASE = SHEET.worksheet("data")
+MESSAGES = SHEET.worksheet("messages")
+REGISTERED_USERS = SHEET.worksheet("users")
+RESULTS = SHEET.worksheet("empty")
 
 
 def show_logo():
     """
     Read ASCII logo from worksheet and display to user.
     """
-    ascii_logo = messages.col_values(3)
+    ascii_logo = MESSAGES.col_values(3)
     col = 0
     for line in ascii_logo:
         if col == 0:
@@ -57,25 +57,25 @@ def user_authentication() -> bool:
     """
     login = False
     user_name = input("Enter user-name:\n")
-    list_of_users = registered_users.col_values(1)
+    list_of_users = REGISTERED_USERS.col_values(1)
     if user_name in list_of_users:
         print(Fore.GREEN + "User recognized")
         print(Style.RESET_ALL)
-        user_row = registered_users.findall(user_name)
+        user_row = REGISTERED_USERS.findall(user_name)
         user_row = str(user_row).split(" ")[1]
         user_row = user_row[1:][:-2]
-        logged_password = registered_users.cell(user_row, 2).value
+        logged_password = REGISTERED_USERS.cell(user_row, 2).value
         password = getpass.getpass("Enter password:\n")
         if password == logged_password:
             print(f"Hello {user_name}")
             login = True
             try:
-                global results
-                results = SHEET.worksheet(user_name)
+                global RESULTS
+                RESULTS = SHEET.worksheet(user_name)
             except gspread.exceptions.WorksheetNotFound:
                 print(Fore.RED + "Worksheet not found...")
                 print(Fore.WHITE + "Creating New Worksheet...")
-                results = SHEET.add_worksheet(title=user_name,
+                RESULTS = SHEET.add_worksheet(title=user_name,
                                               rows=1000, cols=5)
                 print(Fore.YELLOW + "New Empty Worksheet Created.")
                 print(Fore.WHITE)
@@ -96,7 +96,7 @@ def display_welcome():
     """
     Read welcome txt from worksheet and display to user.
     """
-    welcome_txt = messages.col_values(1)
+    welcome_txt = MESSAGES.col_values(1)
     print("")
     for line in welcome_txt:
         if line[0] == "/":
@@ -109,7 +109,7 @@ def display_instructions():
     """
     Display detailed instructions on application functionality and syntax.
     """
-    instructions = messages.col_values(2)
+    instructions = MESSAGES.col_values(2)
     print("")
     for line in instructions:
         if line[0] == "-":
@@ -140,9 +140,9 @@ def clear_results():
     clear = input(">>>\n")
     if clear == "y":
         print("Clearing all previous search data...")
-        results.clear()
+        RESULTS.clear()
         first_row = ["Title", "Style", "Genre", "Director", "Year", "Score"]
-        results.append_row(first_row)
+        RESULTS.append_row(first_row)
     else:
         print("Previous search results have been saved.")
 
@@ -213,7 +213,7 @@ def data_retrieval(parsed_input):
 
     for query in parsed_input:
         if query != "_no_data*":
-            cell_list = database.findall(query)
+            cell_list = DATABASE.findall(query)
             relevant_cells = []
             for cell in cell_list:
                 cell = str(cell).split(" ")[1]
@@ -226,11 +226,11 @@ def data_retrieval(parsed_input):
         print(Fore.WHITE + "Display results? (y/n)")
         if input(">>>") == "y":
             for i in result:
-                pp.pprint(database.row_values(i))
+                pp.pprint(DATABASE.row_values(i))
         print("Store results in worksheet? (y/n)")
         if input(">>>") == "y":
             for i in result:
-                results.append_row(database.row_values(i))
+                RESULTS.append_row(DATABASE.row_values(i))
         print(Fore.YELLOW + "Data written to worksheet.\n")
         main()
     else:
@@ -265,7 +265,7 @@ def add_movie():
     If no movie with given title exists move on to collect remaining
     information about movie and add to database when complete.
     """
-    movie_list = database.col_values(1)
+    movie_list = DATABASE.col_values(1)
     print(Fore.YELLOW + "Enter movie title:")
     new_movie_title = input(Fore.WHITE + ">>>")
     if new_movie_title in movie_list:
@@ -338,7 +338,7 @@ def add_movie():
     print(new_movie_row)
     if input("Add this movie to the database? (y/n)") == "y":
         print("Processing")
-        database.append_row(new_movie_row)
+        DATABASE.append_row(new_movie_row)
         print(Fore.GREEN + "New movie has been added to the database.")
     else:
         print(Fore.RED + "Data was NOT entered into databse.")
@@ -351,9 +351,9 @@ def display_results():
     """
     print(Fore.YELLOW + "Previous Search Results:")
     print(Fore.WHITE)
-    if len(results.col_values(1)) > 1:
+    if len(RESULTS.col_values(1)) > 1:
         line = 1
-        for row in results.get_all_values():
+        for row in RESULTS.get_all_values():
             if line > 1:
                 row = ",".join(row)
                 pp.pprint(row)
@@ -368,7 +368,7 @@ def add_user_menu():
     Prompt user if they want to enter a User to the system
     """
     admin = input("Please provide administrator password:\n")
-    if admin != messages.acell("D1").value:
+    if admin != MESSAGES.acell("D1").value:
         print(Fore.RED + "Incorrect Password!")
         print(Fore.YELLOW + "Returning to main interface.")
         main()
@@ -394,7 +394,7 @@ def add_new_user():
     while True:
         print("Enter new user name:")
         new_user_name = input(">>>\n")
-        list_of_users = registered_users.col_values(1)
+        list_of_users = REGISTERED_USERS.col_values(1)
         if new_user_name in list_of_users:
             print(Fore.RED + "Sorry!...That name is already taken.")
             print(Fore.WHITE)
@@ -412,7 +412,7 @@ def add_new_user():
             break
 
     new_user_row = [new_user_name, new_user_pass]
-    registered_users.append_row(new_user_row)
+    REGISTERED_USERS.append_row(new_user_row)
     print("New user added...")
     print("Personal Worksheet will be created on first login.")
     main()

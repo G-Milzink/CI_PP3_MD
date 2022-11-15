@@ -22,7 +22,7 @@
     2. [Frameworks and Tools](#frameworks-and-tools)
 5. [Features](#features)
 6. [Testing](#validation)
-    1. [Python Validation](#Python-validation)
+    1. [Python Validation](#validation)
     2. [Testing user stories](#testing-user-stories)
 7. [Bugs](#Bugs)
 8. [Deployment](#deployment)
@@ -297,9 +297,16 @@ User stories covered by this screen:
 
 ### Python Validation
 All Python code  was validated using PEP8 Validation Service.  All Code passed with 0 errors.
+A single alert was flagged noting the use of the 'global' stated.
+This was done to allow acces to the global variable 'RESULTS' from within the user_authentication() function.
+'RESULTS' was named using uppercase to comply with pep8 styling even though it is technically not a constant
+as it is first assigned an empty worksheet at declaration wich is then changed to the user specific worksheet during
+user authentication making it a variable rather then a constant.
+
+Any further development of this application would include reworking the user authentication functionality to avoid this.
 
 <details><summary>run.py</summary>
-<img src="docs/images/md_validation.webp">
+<img src="docs/images/validation.webp">
 </details>
 
 ### Testing user stories
