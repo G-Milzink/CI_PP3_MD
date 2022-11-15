@@ -130,9 +130,13 @@ any year
 - /genre,horror&/year,2004
 - /style,live-action&/genre,fantasy&/director,Peter Jackson
 
-#### Adding a Movie to the Database
+Keywords may **NOT** repeat on a single line.
+If any keyword is repeated only the last instance will be processed.
+Example: **/genre,horror&/genre,fantasy** will only return movies of the genre fantasy.
 
+#### Adding a Movie to the Database
 Keyword: /add_movie
+
 The add_movie command will take the user to the 'add movie menu'.
 Select option 1. to add a new movie. 
 Select option 2. To Stop adding movies.
@@ -177,8 +181,8 @@ The /results command will display the contents(if any) of the users personal wor
 #### Clear Results Prompt
 Keyword /clear
 
-Prompts the user is they want to delete all previous search result from their personal worksheet
-(State of the personal worksheet is consistent between sessions) and return to the main interface.
+Prompts the user is they want to delete all previous search result from their personal worksheet and return to the main interface.
+(State of the personal worksheet is consistent between sessions) 
 
 #### Exiting the application
 Keyword: /leave
