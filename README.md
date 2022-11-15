@@ -88,24 +88,24 @@ Once a valid user name is received the application will prompt the user to enter
 If the password provided is not valid the login process will reset to allow the user to try again.
 
 For testing purposes and initial setup the following login has been provided.
-User name: md_admin
-Password: md_password
+- User name: mdb_Guest
+- Password: mdb_Password
 
 #### Main Interface
 
 After login a welcome message will be displayed followed by instructions on the basic syntax for the interface.
 The application will then prompt the user to provide instructions.
 
-The Main Interface accepts the following top level commands:
+**The Main Interface accepts the following top level commands:**
 - **/help** will display detailed instructions on program operation
-- **/results** displays all previous search results.
-- **/clear** will prompt the user to delete *all* previous search data.
+- **/results** displays all previously stored search results.
+- **/clear** will prompt the user to **delete** *all* previously stored search results.
 - **/add** allows the user to add a movie to the database.
 (movie title *must* be unique)
 - **/add** to add a new user acount.
 - **/leave** will exit Movie Database.
 
-The Main Interface accepts the following search parameters:
+**The Main Interface accepts the following search parameters:**
 - **/title**
 any movie title. *case sensitive*
 - **/genre**
@@ -119,16 +119,44 @@ any year
 - **/score**
 0.0 through 10.0
 
-Queries and parameters should be seperated by comma's:
+**Queries and parameters should be seperated by comma's:**
 - /genre,horror
 - /director,Peter Jackson
 
-Queries can be combined by using "&"
-examples:
+**Queries can be combined by using "&":**
 - /genre,horror&/year,2004
 - /style,live-action&/genre,fantasy&/director,Peter Jackson
 
-#### Add Movie
+#### Adding a Movie to the Database
+
+Keyword: /add_movie
+The add_movie command will take the user to the 'add movie menu'.
+Select option 1. to add a new movie. 
+Select option 2. To Stop adding movies.
+
+After choosing to add a movie the user will be prompted to enter a Title for the new entry.
+The provided title will be checked against the database to see if the movie is not already listed.
+(If it is, a message will bbe displayed informing the user and the application wil return to the 'add movie menu')
+
+Upon a reveiving a unique movie title the the user will be presented with a menu offering several choices for production style.
+Select the approptiate option for yout new entry.
+
+After sleecting a production style, a second menu will be displayed allowing the user to choose a genre for their new entry.
+Select the approptiate option for yout new entry.
+
+After seleceting a genre, the user will be promted (3 times)to enter a 'Director', 'Release Year' and 'Score'. (respectively)
+
+Once all data has been received the application will display the entry on the terminal and ask for confirmation before adding the movie to the database.
+The application will then return to the 'add movie menu'.
+
+#### Add a User to the System
+Keyword: /add_user
+
+*!Adding a new user requires the Administrator password!*
+
+The add_user command will first prompt the user to enter the administrator password.
+Upon providing the correct password the application will request a name for the new user and check to see if the name is not already in use.
+
 
 #### Clear Results Prompt
 
