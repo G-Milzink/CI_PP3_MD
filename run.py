@@ -136,10 +136,11 @@ def clear_results():
     """
     Prompt user to either delete or keep previous search results.
     """
-    print("Clear results from previous query? (y/n)")
+    print(Fore.RED + "Clear results from previous query? (y/n)")
+    print(Fore.WHITE)
     clear = input(">>>\n")
     if clear == "y":
-        print("Clearing all previous search data...")
+        print(Fore.YELLOW + "Clearing all previous search data...")
         RESULTS.clear()
         first_row = ["Title", "Style", "Genre", "Director", "Year", "Score"]
         RESULTS.append_row(first_row)
@@ -330,14 +331,21 @@ def add_movie():
     new_movie_dir = input(Fore.WHITE + ">>>")
     print(Fore.YELLOW + "Enter movie release year:")
     new_movie_year = input(Fore.WHITE + ">>>")
-    print(Fore.YELLOW + "Enter movie score:(0.0 through 10.0)")
-    new_movie_score = input(Fore.WHITE + ">>>")
+    while True:
+        print(Fore.YELLOW + "Enter movie score:(0.0 through 10.0)")
+        new_movie_score = input(Fore.WHITE + ">>>")
+        if float(new_movie_score) >= 0.0 and float(new_movie_score) <= 10.0:
+            break
+        else:
+            print(Fore.RED + "Invalid score...")
+            print(Fore.WHITE + "Please try again.")
 
     new_movie_row = [new_movie_title, new_movie_style, new_movie_genre,
                      new_movie_dir, new_movie_year, new_movie_score]
-    print(Fore.YELLOW + "New movie entry:")
-    print(Fore.WHITE)
+    print(Fore.YELLOW + "New movie entry:\n")
+    new_movie_row = ",".join(new_movie_row)
     print(new_movie_row)
+    print(Fore.WHITE)
     if input("Add this movie to the database? (y/n)") == "y":
         print("Processing")
         DATABASE.append_row(new_movie_row)
