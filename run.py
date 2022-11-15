@@ -250,7 +250,7 @@ def add_movie_menu():
     if menu_choice == "1":
         add_movie()
     elif menu_choice == "2":
-        pass
+        main()
     else:
         print(Fore.RED + "Unknown menu selection please try again.\n")
         add_movie_menu()
@@ -336,9 +336,12 @@ def add_movie():
     print(Fore.YELLOW + "New movie entry:")
     print(Fore.WHITE)
     print(new_movie_row)
-    print("Processing")
-    database.append_row(new_movie_row)
-    print(Fore.GREEN + "New movie has been added to the database.")
+    if input("Add this movie to the database? (y/n)") == "y":
+        print("Processing")
+        database.append_row(new_movie_row)
+        print(Fore.GREEN + "New movie has been added to the database.")
+    else:
+        print(Fore.RED + "Data was NOT entered into databse.")
     add_movie_menu()
 
 
