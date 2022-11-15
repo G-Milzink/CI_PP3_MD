@@ -226,8 +226,10 @@ def data_retrieval(parsed_input):
         print(Fore.WHITE + "Display results? (y/n)")
         if input(">>>") == "y":
             for i in result:
-                pp.pprint(DATABASE.row_values(i))
-        print("Store results in worksheet? (y/n)")
+                row = ",".join(DATABASE.row_values(i))
+                pp.pprint(row)
+        print(Fore.YELLOW + "Store results in worksheet? (y/n)")
+        print(Fore.WHITE)
         if input(">>>") == "y":
             for i in result:
                 RESULTS.append_row(DATABASE.row_values(i))
