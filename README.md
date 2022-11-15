@@ -40,7 +40,7 @@
 ### User Goals
 
 - The abillity to search a database for one or more movies based on certain specific criteria.
-- The abillity to keep/review.delete past search results.
+- The abillity to keep/review/delete previous search results.
 - The abillity to add movies to the database.
 
 ### Site owner goals
@@ -160,6 +160,7 @@ The application will then return to the 'add movie menu'.
 Keyword: /add_user
 
 *!Adding a new user requires the Administrator password!*
+(mdb_Administrator)
 
 The add_user command will first prompt the user to enter the administrator password.
 (Entering an incorrect pasword will take the user back to the main interface)
