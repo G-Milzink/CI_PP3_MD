@@ -195,6 +195,14 @@ The /leave command terminates the application.
 
 ## Technical Design
 
+### Data Model
+
+The application was constructed using a Functional Programming approach. All data is read, stored and processed as follows:
+
+**Strings** are used to receive,process and store any data required for operation.
+
+**Lists** are used throughout the appliaction to group relevant strings together. For instance, when iterating through data,constructing new database entries or parsing user input.
+
 ### Flow Chart
 
 <details><summary>Flowchart</summary>
