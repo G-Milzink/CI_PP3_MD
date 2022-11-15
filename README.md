@@ -310,17 +310,31 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |-------------|------------|---------------------|-------------------|
 |Main interface|type /help | User is presented with detailed instructions|works as expected|
 
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_1a.webp"></details>
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_1b.webp"></details>
+
 2. As a user I want to be able to search for a specific movie based on given data and see the results immediatly.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 |Main interface|enter query| Search results are displayed|works as expected|
 
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_2.webp"></details>
+
 3. As a user I want to be able to build a personal database of search results.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 |Login Screen|Enter login| Personal worksheet accessed|works as expected|
+|Main interface|enter query|Get option to store results|works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_3a.webp"></details>
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_3b.webp"></details>
 
 4. As a user I want to be able to review my previous search results.
 
@@ -328,18 +342,29 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |-------------|------------|---------------------|-------------------|
 |Main interface|type /results| Previous searches are displayed|works as expected|
 
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_4.webp"></details>
+
 5. As a user I want to have the option to delete previous search results.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 |Main interface|type /clear| Previous searches are deleted|works as expected|
 
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_5.webp"></details>
+
 6. As a user I want to be able to add a new movie to the database.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 |Main interface|type /add_movie| Go to add movie menu|works as expected|
-|Add movie menu|Select option 1 |Start entering movie detials| Works as expected|
+|Add movie menu|Select option 1 |Start entering movie details| Works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_6a.webp"></details>
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_6b.webp"></details>
 
 7. As the site owner I want users to be able to easily search the database.
 
@@ -347,14 +372,30 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |-------------|------------|---------------------|-------------------|
 |Main interface|Enter search parameters| Results are displayed|works as expected|
 
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_7.webp"></details>
+
 8. As the site owner I want search results to be stored inside a google sheet.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|Main interface|Enter search parameters| Receive prompt to store results|works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_3b.webp"></details>
 
 9. As the site owner I want user to be able to add Movies to the database.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-|Main interface|type /add| Go to add movie menu|works as expected|
+|Main interface|type /add_movie| Go to add movie menu|works as expected|
 |Add movie menu|Select option 1 |Start entering movie detials| Works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_6a.webp"></details>
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_6b.webp"></details>
+
 
 10. As the site owner I want to be able to add a new user to the system.
 
@@ -363,11 +404,14 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |Main interface|Type: /add_user|Go to add user menu|works as expected|
 |Add user menu|Enter valid user details|User is created| Works as expected|
 
-11. As the site owner I want every new entry to follow the correct format.
+11. As the site owner I want every new database entry to follow the correct format.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-|Add movie menu|Select option 1 |Receive instruction on new movie entry| Works as expected|
+|Add movie menu|Select option 1 |Receive instructions on making new entry| Works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_6b.webp"></details>
 
 12. As the site owner I want restrict use of the application to registered users.
 
@@ -375,6 +419,11 @@ All Python code  was validated using PEP8 Validation Service.  All Code passed w
 |-------------|------------|---------------------|-------------------|
 |Login Screen|Enter valid login|Login accepted |works as expected|
 |Login Screen|Enter invalid login|Login rejected |works as expected|
+
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_3a.webp"></details>
+<details><summary>Screenshot</summary>
+<img src="docs/images/user_stories/user_story_12a.webp"></details>
 
 [Back to Table Of Contents](#table-of-contents)
 
