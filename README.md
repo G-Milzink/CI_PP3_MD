@@ -91,6 +91,9 @@ For testing purposes and initial setup the following login has been provided.
 - User name: mdb_Guest
 - Password: mdb_Password
 
+Logging in can only be done upon first running the program. 
+Logging in as a different user requires termination and restarting of the application.
+
 #### Main Interface
 
 After login a welcome message will be displayed followed by instructions on the basic syntax for the interface.
@@ -156,11 +159,31 @@ Keyword: /add_user
 
 The add_user command will first prompt the user to enter the administrator password.
 (Entering an incorrect pasword will take the user back to the main interface)
-After receiving the administrator password the application will promt the user to provide a anme for the new user.
+After receiving the administrator password the application will promt the user to provide a name for the new user.
 
+*User names must be unique*....The application will check to see if the name provided is available.
+(If the provided name is already in use the application will display message informing the user and return to the 'add user' menu)
 
+After providing a valid name for the new user, the application will request a password for the new user.
+The new password must be entered twice for confirmation.
+(If confirmation fails the user will be taken back to the 'add user' menu)
+Upon confirmation a the new user will be added to the databse and a new personal worksheet will created on their first login.
 
 #### Clear Results Prompt
+Keyword /results
+
+The /results command will display the contents(if any) of the users personal worksheet and return to the main interface.
+
+#### Clear Results Prompt
+Keyword /clear
+
+Prompts the user is they want to delete all previous search result from their personal worksheet
+(State of the personal worksheet is consistent between sessions) and return to the main interface.
+
+#### Exiting the application
+Keyword: /leave
+
+The /leave command terminates the application.
 
 </details>
 
