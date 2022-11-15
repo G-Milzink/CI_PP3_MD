@@ -116,10 +116,11 @@ def display_instructions():
             print(Fore.GREEN + line)
         elif line[0] == "/":
             print(Fore.YELLOW + line)
+        elif line[0] == "!":
+            print(Fore.RED + line)
         else:
             print(Style.RESET_ALL + line)
-    print(Style.RESET_ALL + "Hit 'Enter' to continue...")
-    input(">>>\n")
+    input(Fore.WHITE + "Hit 'Enter' to continue...\n")
     main()
 
 
@@ -370,7 +371,7 @@ def add_new_user():
         new_user_name = input(">>>\n")
         list_of_users = registered_users.col_values(1)
         if new_user_name in list_of_users:
-            print(Fore.RED + "Sorry!...That name is already taken")
+            print(Fore.RED + "Sorry!...That name is already taken.")
             print(Fore.WHITE)
             add_new_user()
         else:
