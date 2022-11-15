@@ -171,7 +171,7 @@ def input_parser(user_input):
     elif user_input == "/add_movie":
         add_movie_menu()
     elif user_input == "/add_user":
-        add_new_user()
+        add_user_menu()
     elif user_input == "/results":
         display_results()
     else:
@@ -363,6 +363,28 @@ def display_results():
     main()
 
 
+def add_user_menu():
+    """
+    Prompt user if they want to enter a User to the system
+    """
+    admin = input("Please provide administrator password:\n")
+    if admin != messages.acell("D1").value:
+        print(Fore.RED + "Incorrect Password!")
+        print(Fore.YELLOW + "Returning to main interface.")
+        main()
+    print(Fore.YELLOW + "Add  new user to database:")
+    print(Fore.WHITE + "1. Add new user.")
+    print("2. Stop adding users.")
+    menu_choice = input(">>>\n")
+    if menu_choice == "1":
+        add_new_user()
+    elif menu_choice == "2":
+        main()
+    else:
+        print(Fore.RED + "Unknown menu selection please try again.\n")
+        add_movie_menu()
+
+
 def add_new_user():
     """
     Ask for new user name, check if available.
@@ -376,7 +398,7 @@ def add_new_user():
         if new_user_name in list_of_users:
             print(Fore.RED + "Sorry!...That name is already taken.")
             print(Fore.WHITE)
-            add_new_user()
+            add_user_menu()
         else:
             break
 
