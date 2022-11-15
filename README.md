@@ -199,9 +199,11 @@ The /leave command terminates the application.
 
 The application was constructed using a Functional Programming approach. All data is read, stored and processed as follows:
 
-**Strings** are used to receive,process and store any data required for operation.
+- **Strings** are used to receive,process and store any data required for operation.
 
-**Lists** are used throughout the appliaction to group relevant strings together. For instance, when iterating through data,constructing new database entries or parsing user input.
+- **Lists** are used throughout the appliaction to group relevant strings together. For instance, when iterating through data,constructing new database entries or parsing user input.
+
+- **Google sheets API** JUSTIFICATION: I have chosen to use Google Sheets API so that all required data will persist outside of the application.
 
 ### Flow Chart
 
