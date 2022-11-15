@@ -155,7 +155,9 @@ Keyword: /add_user
 *!Adding a new user requires the Administrator password!*
 
 The add_user command will first prompt the user to enter the administrator password.
-Upon providing the correct password the application will request a name for the new user and check to see if the name is not already in use.
+(Entering an incorrect pasword will take the user back to the main interface)
+After receiving the administrator password the application will promt the user to provide a anme for the new user.
+
 
 
 #### Clear Results Prompt
