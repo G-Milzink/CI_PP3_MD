@@ -247,47 +247,47 @@ This includes: The actual database, instructions, welcome message, user login de
 
 ### Logo
 
-<img src="docs/images/md_logo.webp">
+<img src="docs/images/features/md_logo.webp">
 
 ### Login Screen
 
-<img src="docs/images/md_login.webp">
+<img src="docs/images/features/md_login.webp">
 
 User stories covered by this screen:
 3, 12
 
 ### Main Interface
 
-<img src="docs/images/md_main_interface.webp">
+<img src="docs/images/features/md_main_interface.webp">
 
 User stories covered by this screen:
 1, 2, ,5, 6, 7, 9, 10
 
 ### Detailed Instructions
 
-<img src="docs/images/md_detailed_instructions.webp">
+<img src="docs/images/features/md_detailed_instructions.webp">
 
 User stories covered by this screen:
 1,7
 
 ### Clear Results Prompt
 
-<img src="docs/images/md_clear_results_prompt.webp">
+<img src="docs/images/features/md_clear_results_prompt.webp">
 
 User storie covered by this screen:
 5
 
 ### Add New Movie Menu
 
-<img src="docs/images/md_add_movie_menu.webp">
+<img src="docs/images/features/md_add_movie_menu.webp">
 
 User stories covered by this screen:
 6, 9
 
 ### Add New Movie Process
 
-<img src="docs/images/md_add_movie_proces.webp">
-<img src="docs/images/md_add_movie_proces_2.webp">
+<img src="docs/images/features/md_add_movie_proces.webp">
+<img src="docs/images/features/md_add_movie_proces_2.webp">
 
 6, 9, 11
 
